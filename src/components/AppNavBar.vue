@@ -1,8 +1,8 @@
 <template>
   <nav>
-    <button @click="test">Button #1</button>
-    <button>Button #2</button>
-    <button>Button #3</button>
+    <button @click="test">Bind TEst</button>
+    <button @click="httpTest">Server TEst</button>
+    <button @click="debugInfo">DEBUG</button>
   </nav>
 </template>
 
@@ -17,6 +17,14 @@ export default {
   methods: {
     test: function() {
       console.log(this.$data.dummy);
+    },
+    httpTest: function() {
+      return this.$http.get("http://localhost:3001/").then(results => {
+        console.log(results);
+      });
+    },
+    debugInfo: function() {
+      console.log(this);
     }
   }
 };
